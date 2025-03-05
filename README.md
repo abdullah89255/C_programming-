@@ -274,4 +274,272 @@ Distance: 150 meters
 Precise Pi: 3.141592653589793
 ```
 
-Let me know if you'd like more examples or further clarification!
+Here’s a detailed overview of **Control Structures**, **Functions**, **Arrays**, **Pointers**, and **Structures** in **C programming**:
+
+---
+
+## **1. Control Structures**
+
+Control structures are used to dictate the flow of execution in a program. They include **decision-making** and **looping** constructs.
+
+### **Decision-Making Statements**
+1. **if Statement**
+   ```c
+   if (condition) {
+       // Code to execute if condition is true
+   }
+   ```
+   Example:
+   ```c
+   int age = 18;
+   if (age >= 18) {
+       printf("You are an adult.\n");
+   }
+   ```
+
+2. **if-else Statement**
+   ```c
+   if (condition) {
+       // Code if condition is true
+   } else {
+       // Code if condition is false
+   }
+   ```
+
+3. **else if Ladder**
+   ```c
+   if (condition1) {
+       // Code if condition1 is true
+   } else if (condition2) {
+       // Code if condition2 is true
+   } else {
+       // Code if none of the conditions are true
+   }
+   ```
+
+4. **switch Statement**
+   - Selects one block of code to execute based on the value of an expression.
+   ```c
+   switch (expression) {
+       case value1:
+           // Code for case value1
+           break;
+       case value2:
+           // Code for case value2
+           break;
+       default:
+           // Code if no cases match
+   }
+   ```
+
+   Example:
+   ```c
+   int day = 2;
+   switch (day) {
+       case 1:
+           printf("Monday\n");
+           break;
+       case 2:
+           printf("Tuesday\n");
+           break;
+       default:
+           printf("Other day\n");
+   }
+   ```
+
+### **Looping Statements**
+1. **for Loop**
+   ```c
+   for (initialization; condition; increment/decrement) {
+       // Code to execute in loop
+   }
+   ```
+
+2. **while Loop**
+   ```c
+   while (condition) {
+       // Code to execute while condition is true
+   }
+   ```
+
+3. **do-while Loop**
+   - Executes the code block at least once.
+   ```c
+   do {
+       // Code to execute
+   } while (condition);
+   ```
+
+---
+
+## **2. Functions**
+
+A function is a block of code designed to perform a specific task. It enhances code modularity and reusability.
+
+### **Syntax**
+```c
+return_type function_name(parameters) {
+    // Function body
+    return value; // (if applicable)
+}
+```
+
+### **Example**
+```c
+#include<stdio.h>
+
+// Function declaration
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 10);
+    printf("Sum: %d\n", result);
+    return 0;
+}
+```
+
+---
+
+## **3. Arrays**
+
+An array is a collection of elements of the same type stored in contiguous memory locations.
+
+### **Declaration**
+```c
+data_type array_name[size];
+```
+
+### **Example**
+```c
+#include<stdio.h>
+
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50}; // Array initialization
+
+    // Access elements using indices
+    printf("First element: %d\n", numbers[0]);
+
+    // Loop through the array
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    return 0;
+}
+```
+
+### **Multi-dimensional Arrays**
+```c
+int matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+```
+
+---
+
+## **4. Pointers**
+
+Pointers are variables that store the memory address of another variable.
+
+### **Declaration**
+```c
+data_type *pointer_name;
+```
+
+### **Example**
+```c
+#include<stdio.h>
+
+int main() {
+    int x = 10;
+    int *ptr = &x; // Pointer to x
+
+    printf("Value of x: %d\n", x);
+    printf("Address of x: %p\n", ptr);
+    printf("Value at address stored in ptr: %d\n", *ptr);
+
+    return 0;
+}
+```
+
+### **Pointer Arithmetic**
+```c
+ptr++;  // Move to the next memory location
+ptr--;  // Move to the previous memory location
+```
+
+### **Pointers and Arrays**
+```c
+int arr[3] = {10, 20, 30};
+int *ptr = arr; // Pointer to the first element
+
+printf("First element: %d\n", *ptr);    // 10
+printf("Second element: %d\n", *(ptr+1)); // 20
+```
+
+---
+
+## **5. Structures**
+
+A structure (`struct`) is a user-defined data type that groups variables of different types.
+
+### **Syntax**
+```c
+struct StructureName {
+    data_type member1;
+    data_type member2;
+    // More members
+};
+```
+
+### **Example**
+```c
+#include<stdio.h>
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct Point p1 = {10, 20}; // Initialization
+
+    // Access members
+    printf("Point: (%d, %d)\n", p1.x, p1.y);
+
+    // Modify members
+    p1.x = 30;
+    printf("Modified Point: (%d, %d)\n", p1.x, p1.y);
+
+    return 0;
+}
+```
+
+### **Structure with Pointers**
+```c
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct Point p1 = {10, 20};
+    struct Point *ptr = &p1;
+
+    printf("Point: (%d, %d)\n", ptr->x, ptr->y);
+
+    // Modify using pointer
+    ptr->x = 50;
+    printf("Modified Point: (%d, %d)\n", ptr->x, ptr->y);
+
+    return 0;
+}
+```
+
+---
+
+These concepts form the backbone of the C programming language. If you need further explanation or examples, feel free to ask!
