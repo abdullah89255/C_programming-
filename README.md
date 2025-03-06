@@ -542,4 +542,305 @@ int main() {
 
 ---
 
-These concepts form the backbone of the C programming language. If you need further explanation or examples, feel free to ask!
+Here are more detailed examples of **Control Structures**, **Functions**, **Arrays**, **Pointers**, and **Structures** in C programming:
+
+---
+
+### **1. Control Structures**
+
+#### **Example 1: Nested `if-else`**
+```c
+#include<stdio.h>
+
+int main() {
+    int marks = 85;
+
+    if (marks >= 90) {
+        printf("Grade: A\n");
+    } else if (marks >= 75) {
+        if (marks >= 80) {
+            printf("Grade: B+\n");
+        } else {
+            printf("Grade: B\n");
+        }
+    } else {
+        printf("Grade: C\n");
+    }
+
+    return 0;
+}
+```
+
+#### **Example 2: `for` Loop**
+```c
+#include<stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("Iteration %d\n", i);
+    }
+    return 0;
+}
+```
+
+#### **Example 3: `while` Loop**
+```c
+#include<stdio.h>
+
+int main() {
+    int i = 1;
+
+    while (i <= 5) {
+        printf("Count: %d\n", i);
+        i++;
+    }
+
+    return 0;
+}
+```
+
+#### **Example 4: `switch` Statement**
+```c
+#include<stdio.h>
+
+int main() {
+    char grade = 'B';
+
+    switch (grade) {
+        case 'A':
+            printf("Excellent!\n");
+            break;
+        case 'B':
+            printf("Good Job!\n");
+            break;
+        case 'C':
+            printf("Well Done\n");
+            break;
+        default:
+            printf("Invalid Grade\n");
+    }
+
+    return 0;
+}
+```
+
+---
+
+### **2. Functions**
+
+#### **Example 1: Function with Parameters and Return Value**
+```c
+#include<stdio.h>
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int main() {
+    int result = multiply(5, 3);
+    printf("The result is: %d\n", result);
+    return 0;
+}
+```
+
+#### **Example 2: Function without Return Value**
+```c
+#include<stdio.h>
+
+void greet() {
+    printf("Hello, welcome to C programming!\n");
+}
+
+int main() {
+    greet();
+    return 0;
+}
+```
+
+---
+
+### **3. Arrays**
+
+#### **Example 1: Traversing an Array**
+```c
+#include<stdio.h>
+
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50};
+
+    for (int i = 0; i < 5; i++) {
+        printf("Element at index %d: %d\n", i, numbers[i]);
+    }
+
+    return 0;
+}
+```
+
+#### **Example 2: Multi-Dimensional Array**
+```c
+#include<stdio.h>
+
+int main() {
+    int matrix[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+
+---
+
+### **4. Pointers**
+
+#### **Example 1: Pointer to a Variable**
+```c
+#include<stdio.h>
+
+int main() {
+    int x = 25;
+    int *ptr = &x;
+
+    printf("Value of x: %d\n", x);
+    printf("Address of x: %p\n", &x);
+    printf("Value using pointer: %d\n", *ptr);
+
+    return 0;
+}
+```
+
+#### **Example 2: Pointer Arithmetic**
+```c
+#include<stdio.h>
+
+int main() {
+    int numbers[3] = {10, 20, 30};
+    int *ptr = numbers;
+
+    printf("First element: %d\n", *ptr);
+    printf("Second element: %d\n", *(ptr + 1));
+    printf("Third element: %d\n", *(ptr + 2));
+
+    return 0;
+}
+```
+
+---
+
+### **5. Structures**
+
+#### **Example 1: Defining and Using a Structure**
+```c
+#include<stdio.h>
+
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student student1 = {1, "Alice", 95.5};
+
+    printf("ID: %d\n", student1.id);
+    printf("Name: %s\n", student1.name);
+    printf("Marks: %.2f\n", student1.marks);
+
+    return 0;
+}
+```
+
+#### **Example 2: Array of Structures**
+```c
+#include<stdio.h>
+
+struct Book {
+    char title[50];
+    char author[50];
+    int year;
+};
+
+int main() {
+    struct Book books[2] = {
+        {"C Programming", "Dennis Ritchie", 1972},
+        {"The C++ Programming Language", "Bjarne Stroustrup", 1985}
+    };
+
+    for (int i = 0; i < 2; i++) {
+        printf("Book %d:\n", i + 1);
+        printf("Title: %s\n", books[i].title);
+        printf("Author: %s\n", books[i].author);
+        printf("Year: %d\n", books[i].year);
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+
+#### **Example 3: Structure with Pointers**
+```c
+#include<stdio.h>
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct Point p1 = {10, 20};
+    struct Point *ptr = &p1;
+
+    printf("Point: (%d, %d)\n", ptr->x, ptr->y);
+
+    ptr->x = 30;
+    ptr->y = 40;
+
+    printf("Updated Point: (%d, %d)\n", ptr->x, ptr->y);
+
+    return 0;
+}
+```
+
+---
+
+### Combined Example: Using Structures, Arrays, Functions, and Pointers
+
+```c
+#include<stdio.h>
+
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+
+void displayEmployee(struct Employee *emp) {
+    printf("ID: %d\n", emp->id);
+    printf("Name: %s\n", emp->name);
+    printf("Salary: %.2f\n", emp->salary);
+}
+
+int main() {
+    struct Employee emp1 = {101, "John Doe", 50000.0};
+    struct Employee emp2 = {102, "Jane Smith", 60000.0};
+
+    displayEmployee(&emp1);
+    printf("\n");
+    displayEmployee(&emp2);
+
+    return 0;
+}
+```
+
+---
+
+If you'd like more examples or a deeper dive into a specific topic, feel free to ask!
